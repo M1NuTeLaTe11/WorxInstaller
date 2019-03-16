@@ -175,7 +175,7 @@ cd ~
 
   echo -e "${GREEN}Git'ing source${NC}"
 git clone $COIN_GIT > /dev/null 2>&1
-cd worx
+cd worx-protocol70719
   echo -e "${GREEN}Configuring Source${NC}"
 
 ./autogen.sh > /dev/null 2>&1
