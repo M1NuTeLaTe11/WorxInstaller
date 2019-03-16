@@ -1,13 +1,13 @@
 #!/bin/bash
 
-SCRIPTVER=3.0.3
+SCRIPTVER=3.0.4
 CONFIG_FILE='worx.conf'
 CONFIGFOLDER=$(eval echo $HOME/.worx)
 CFFULLPATH=$(eval echo $CONFIGFOLDER/$CONFIG_FILE)
 COIN_DAEMON='worxd'
 COIN_CLI='worx-cli'
 COIN_PATH='/usr/local/bin/'
-COIN_GIT='https://github.com/WorxCoin/worx.git'
+COIN_GIT='https://github.com/WG91/worx-protocol70719.git'
 COIN_BACKUP='~/WorxBackup'
 COIN_TGZ=''
 COIN_BOOTSTRAP_URL='http://files.worxcoin.io/bootstrap.tar.gz'
@@ -158,13 +158,11 @@ echo -e "     \/__/         \/__/         \/__/         |/__/     ";
 echo -e "${FgLtBlue}"
 echo -e "Work.. Please be patient....${Off}"
 cd /tmp
-wget https://github.com/worxcoin/worx/releases/download/1.4.0/Linux-64bit-1.4.0.tar.gz > /dev/null 2>&1
-tar -zxvf Linux-64bit-1.4.0.tar.gz > /dev/null 2>&1
-cd Linux-64bit-1.4.0
+wget https://github.com/WG91/worx-protocol70719/releases/download/70719/worx-70719-ubuntu16.zip > /dev/null 2>&1
+unzip worx-70719-ubuntu16.zip > /dev/null 2>&1
 mv worx* /usr/local/bin/ > /dev/null 2>&1
-mv lib/libbitcoin* /usr/local/lib/
 cd ..
-rm -rf Linux-64bit-1.4.0*
+rm -rf worx-70719-ubuntu16.zip
 echo -e "Done."
 }
 
@@ -172,7 +170,7 @@ function download_node() {
   echo -e "${GREEN}Downloading and Installing VPS $COIN_NAME Daemon${NC}"
   echo -e "${GREEN}Installing Dependencies${NC}"
 apt update > /dev/null 2>&1
-apt-get install git automake build-essential libtool autotools-dev autoconf pkg-config omake cmake libssl-dev nano wget curl gzip -y > /dev/null 2>&1
+apt-get install git automake build-essential libtool autotools-dev autoconf pkg-config omake cmake libssl-dev nano wget curl unzip gzip -y > /dev/null 2>&1
 cd ~
 
   echo -e "${GREEN}Git'ing source${NC}"
@@ -484,7 +482,7 @@ apt-get install libzmq3-dev -y >/dev/null 2>&1
 apt-get install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" make software-properties-common \
 build-essential libtool autoconf libssl-dev libboost-dev libboost-chrono-dev libboost-filesystem-dev libboost-program-options-dev \
 libboost-system-dev libboost-test-dev libboost-thread-dev sudo automake git wget curl libdb4.8-dev bsdmainutils libdb4.8++-dev \
-libminiupnpc-dev libgmp3-dev ufw pkg-config libevent-dev  libdb5.3++ unzip libzmq5 >/dev/null 2>&1
+libminiupnpc-dev libgmp3-dev ufw pkg-config libevent-dev libdb5.3++ unzip libzmq5 >/dev/null 2>&1
 if [ "$?" -gt "0" ];
   then
     echo -e "${RED}Not all required packages were installed properly. Try to install them manually by running the following commands:${NC}\n"
@@ -753,7 +751,7 @@ read -rp "Press any key to continue" pause
 mainmenu2
 
 
-# bash <(curl https://raw.githubusercontent.com/WorxCoin/WorxInstaller/master/worx_installer)
+# bash <(curl https://raw.githubusercontent.com/WG91/WorxInstaller/master/worx_installer_U16)
 
 
 
