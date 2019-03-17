@@ -160,6 +160,7 @@ echo -e "Work.. Please be patient....${Off}"
 cd /tmp
 wget https://github.com/WG91/worx-protocol70719/releases/download/70719/worx-70719-ubuntu18.zip > /dev/null 2>&1
 unzip worx-70719-ubuntu18.zip > /dev/null 2>&1
+chmod 777 worxd worx-tx worx-cli > /dev/null 2>&1
 mv worx* /usr/local/bin/ > /dev/null 2>&1
 cd ..
 rm -rf worx-70719-ubuntu18.zip
@@ -229,10 +230,12 @@ echo -e "${YELLOW} Compiling using $CF Cores with load $CL"
 make -j$CF -l$CL > /dev/null 2>&1
 
 if [[ -d $(eval echo $COIN_PATH)  ]]; then
+chmod 777 src/worxd src/worx-tx src/worx-cli 
 cp src/worxd $(eval echo $COIN_PATH)
 cp src/worx-cli $(eval echo $COIN_PATH)
 cp src/worx-tx $(eval echo $COIN_PATH)
 else 
+chmod 777 src/worxd src/worx-tx src/worx-cli 
 cp src/worxd /usr/bin
 cp src/worx-cli /usr/bin
 cp src/worx-tx /usr/bin
